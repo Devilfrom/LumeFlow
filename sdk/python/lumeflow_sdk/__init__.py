@@ -1,6 +1,6 @@
 from beartype.claw import beartype_this_package
 import importlib.metadata
-from .ragflow import RAGFlow
+from .lumeflow import LumeFlow
 from .modules.dataset import DataSet
 from .modules.chat import Chat
 from .modules.session import Session
@@ -10,6 +10,6 @@ from .modules.chunk import Chunk
 
 beartype_this_package()
 
-__version__ = importlib.metadata.version("ragflow_sdk")
+__version__ = importlib.metadata.version("lumeflow_sdk")
 
-__all__ = ["RAGFlow", "DataSet", "Chat", "Session", "Document", "Chunk"]
+__all__ = ["LumeFlow", "DataSet", "Chat", "Session", "Document", "Chunk"]

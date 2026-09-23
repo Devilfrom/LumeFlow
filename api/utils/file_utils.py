@@ -74,7 +74,7 @@ def get_rag_python_directory(*args):
 
 
 def get_home_cache_dir():
-    dir = os.path.join(os.path.expanduser('~'), ".ragflow")
+    dir = os.path.join(os.path.expanduser('~'), ".lumeflow")
     try:
         os.mkdir(dir)
     except OSError:

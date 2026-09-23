@@ -28,7 +28,7 @@ from common import (
     list_dataset,
     upload_documnets,
 )
-from libs.auth import RAGFlowHttpApiAuth
+from libs.auth import LumeFlowHttpApiAuth
 from libs.utils.file_utils import create_txt_file
 from requests_toolbelt import MultipartEncoder
 
@@ -39,7 +39,7 @@ class TestAuthorization:
         [
             (None, 0, "`Authorization` can't be empty"),
             (
-                RAGFlowHttpApiAuth(INVALID_API_TOKEN),
+                LumeFlowHttpApiAuth(INVALID_API_TOKEN),
                 109,
                 "Authentication error: API key is invalid!",
             ),
@@ -57,7 +57,7 @@ class TestAuthorization:
 class TestUploadDocuments:
     def test_valid_single_upload(self, get_http_api_auth, tmp_path):
         ids = create_datasets(get_http_api_auth, 1)
-        fp = create_txt_file(tmp_path / "ragflow_test.txt")
+        fp = create_txt_file(tmp_path / "lumeflow_test.txt")
         res = upload_documnets(get_http_api_auth, ids[0], [fp])
         assert res["code"] == 0
         assert res["data"][0]["dataset_id"] == ids[0]
@@ -94,13 +94,13 @@ class TestUploadDocuments:
     )
     def test_unsupported_file_type(self, get_http_api_auth, tmp_path, file_type):
         ids = create_datasets(get_http_api_auth, 1)
-        fp = tmp_path / f"ragflow_test.{file_type}"
+        fp = tmp_path / f"lumeflow_test.{file_type}"
         fp.touch()
         res = upload_documnets(get_http_api_auth, ids[0], [fp])
         assert res["code"] == 500
         assert (
             res["message"]
-            == f"ragflow_test.{file_type}: This type of file has not been supported yet!"
+            == f"lumeflow_test.{file_type}: This type of file has not been supported yet!"
         )
 
     def test_missing_file(self, get_http_api_auth):
@@ -120,7 +120,7 @@ class TestUploadDocuments:
 
     def test_filename_empty(self, get_http_api_auth, tmp_path):
         ids = create_datasets(get_http_api_auth, 1)
-        fp = create_txt_file(tmp_path / "ragflow_test.txt")
+        fp = create_txt_file(tmp_path / "lumeflow_test.txt")
         url = f"{HOST_ADDRESS}{FILE_API_URL}".format(dataset_id=ids[0])
         fields = (("file", ("", fp.open("rb"))),)
         m = MultipartEncoder(fields=fields)
@@ -145,7 +145,7 @@ class TestUploadDocuments:
         )
 
     def test_invalid_dataset_id(self, get_http_api_auth, tmp_path):
-        fp = create_txt_file(tmp_path / "ragflow_test.txt")
+        fp = create_txt_file(tmp_path / "lumeflow_test.txt")
         res = upload_documnets(get_http_api_auth, "invalid_dataset_id", [fp])
         assert res["code"] == 100
         assert (
@@ -155,7 +155,7 @@ class TestUploadDocuments:
 
     def test_duplicate_files(self, get_http_api_auth, tmp_path):
         ids = create_datasets(get_http_api_auth, 1)
-        fp = create_txt_file(tmp_path / "ragflow_test.txt")
+        fp = create_txt_file(tmp_path / "lumeflow_test.txt")
         res = upload_documnets(get_http_api_auth, ids[0], [fp, fp])
         assert res["code"] == 0
         assert len(res["data"]) == 2
@@ -168,7 +168,7 @@ class TestUploadDocuments:
 
     def test_same_file_repeat(self, get_http_api_auth, tmp_path):
         ids = create_datasets(get_http_api_auth, 1)
-        fp = create_txt_file(tmp_path / "ragflow_test.txt")
+        fp = create_txt_file(tmp_path / "lumeflow_test.txt")
         for i in range(10):
             res = upload_documnets(get_http_api_auth, ids[0], [fp])
             assert res["code"] == 0

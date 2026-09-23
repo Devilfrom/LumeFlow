@@ -22,8 +22,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  ragflow_tests:
-    name: ragflow_tests
+  lumeflow_tests:
+    name: lumeflow_tests
     # https://docs.github.com/en/actions/using-jobs/using-conditions-to-control-job-execution
     # https://github.com/orgs/community/discussions/26261
     if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'ci') }}

@@ -16,7 +16,7 @@
 from requests.auth import AuthBase
 
 
-class RAGFlowHttpApiAuth(AuthBase):
+class LumeFlowHttpApiAuth(AuthBase):
     def __init__(self, token):
         self._token = token
 

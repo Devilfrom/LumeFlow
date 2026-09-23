@@ -14,15 +14,15 @@
 #  limitations under the License.
 #
 
-from ragflow_sdk import RAGFlow
+from lumeflow_sdk import LumeFlow
 from common import HOST_ADDRESS
 
 
 def test_create_session_with_success(get_api_key_fixture):
     API_KEY = get_api_key_fixture
-    rag = RAGFlow(API_KEY, HOST_ADDRESS)
+    rag = LumeFlow(API_KEY, HOST_ADDRESS)
     kb = rag.create_dataset(name="test_create_session")
-    display_name = "ragflow.txt"
+    display_name = "lumeflow.txt"
     with open("test_data/ragflow.txt", "rb") as file:
         blob = file.read()
     document = {"display_name": display_name, "blob": blob}
@@ -37,9 +37,9 @@ def test_create_session_with_success(get_api_key_fixture):
 
 def test_create_conversation_with_success(get_api_key_fixture):
     API_KEY = get_api_key_fixture
-    rag = RAGFlow(API_KEY, HOST_ADDRESS)
+    rag = LumeFlow(API_KEY, HOST_ADDRESS)
     kb = rag.create_dataset(name="test_create_conversation")
-    display_name = "ragflow.txt"
+    display_name = "lumeflow.txt"
     with open("test_data/ragflow.txt", "rb") as file:
         blob = file.read()
     document = {"display_name": display_name, "blob": blob}
@@ -59,9 +59,9 @@ def test_create_conversation_with_success(get_api_key_fixture):
 
 def test_delete_sessions_with_success(get_api_key_fixture):
     API_KEY = get_api_key_fixture
-    rag = RAGFlow(API_KEY, HOST_ADDRESS)
+    rag = LumeFlow(API_KEY, HOST_ADDRESS)
     kb = rag.create_dataset(name="test_delete_session")
-    display_name = "ragflow.txt"
+    display_name = "lumeflow.txt"
     with open("test_data/ragflow.txt", "rb") as file:
         blob = file.read()
     document = {"display_name": display_name, "blob": blob}
@@ -77,9 +77,9 @@ def test_delete_sessions_with_success(get_api_key_fixture):
 
 def test_update_session_with_name(get_api_key_fixture):
     API_KEY = get_api_key_fixture
-    rag = RAGFlow(API_KEY, HOST_ADDRESS)
+    rag = LumeFlow(API_KEY, HOST_ADDRESS)
     kb = rag.create_dataset(name="test_update_session")
-    display_name = "ragflow.txt"
+    display_name = "lumeflow.txt"
     with open("test_data/ragflow.txt", "rb") as file:
         blob = file.read()
     document = {"display_name": display_name, "blob": blob}
@@ -95,9 +95,9 @@ def test_update_session_with_name(get_api_key_fixture):
 
 def test_list_sessions_with_success(get_api_key_fixture):
     API_KEY = get_api_key_fixture
-    rag = RAGFlow(API_KEY, HOST_ADDRESS)
+    rag = LumeFlow(API_KEY, HOST_ADDRESS)
     kb = rag.create_dataset(name="test_list_session")
-    display_name = "ragflow.txt"
+    display_name = "lumeflow.txt"
     with open("test_data/ragflow.txt", "rb") as file:
         blob = file.read()
     document = {"display_name": display_name, "blob": blob}

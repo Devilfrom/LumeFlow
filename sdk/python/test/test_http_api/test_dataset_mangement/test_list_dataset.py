@@ -17,7 +17,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 import pytest
 from common import INVALID_API_TOKEN, create_datasets, list_dataset
-from libs.auth import RAGFlowHttpApiAuth
+from libs.auth import LumeFlowHttpApiAuth
 
 
 def is_sorted(data, field, descending=True):
@@ -35,7 +35,7 @@ class TestAuthorization:
         [
             (None, 0, "`Authorization` can't be empty"),
             (
-                RAGFlowHttpApiAuth(INVALID_API_TOKEN),
+                LumeFlowHttpApiAuth(INVALID_API_TOKEN),
                 109,
                 "Authentication error: API key is invalid!",
             ),

@@ -28,7 +28,7 @@ from api.db.services.llm_service import LLMBundle
 from api.db.services.task_service import TaskService
 from api.db.services.file2document_service import File2DocumentService
 from api import settings
-from api.versions import get_ragflow_version
+from api.versions import get_lumeflow_version
 from api.db.db_models import close_connection
 from rag.app import laws, paper, presentation, manual, qa, table, book, resume, picture, naive, one, audio, \
     email, tag
@@ -629,7 +629,7 @@ async def main():
  / / / /_/ (__  ) ,<    / /____>  </  __/ /__/ /_/ / /_/ /_/ / /    
 /_/  \__,_/____/_/|_|  /_____/_/|_|\___/\___/\__,_/\__/\____/_/                               
     """)
-    logging.info(f'TaskExecutor: RAGFlow version: {get_ragflow_version()}')
+    logging.info(f'TaskExecutor: LumeFlow version: {get_lumeflow_version()}')
     settings.init_settings()
     print_rag_settings()
     if sys.platform != "win32":

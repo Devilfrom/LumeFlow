@@ -14,6 +14,6 @@
 #  limitations under the License.
 #
 
-import ragflow_sdk
+import lumeflow_sdk
 
-print(ragflow_sdk.__version__)
+print(lumeflow_sdk.__version__)

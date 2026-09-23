@@ -14,16 +14,16 @@
 #  limitations under the License.
 #
 
-from ragflow_sdk import RAGFlow
+from lumeflow_sdk import LumeFlow
 from common import HOST_ADDRESS
 from time import sleep
 
 
 def test_parse_document_with_txt(get_api_key_fixture):
     API_KEY = get_api_key_fixture
-    rag = RAGFlow(API_KEY, HOST_ADDRESS)
+    rag = LumeFlow(API_KEY, HOST_ADDRESS)
     ds = rag.create_dataset(name="test_parse_document")
-    name = 'ragflow_test.txt'
+    name = 'lumeflow_test.txt'
     with open("test_data/ragflow_test.txt", "rb") as file:
         blob = file.read()
     docs = ds.upload_documents([{"display_name": name, "blob": blob}])
@@ -41,9 +41,9 @@ def test_parse_document_with_txt(get_api_key_fixture):
 
 def test_parse_and_cancel_document(get_api_key_fixture):
     API_KEY = get_api_key_fixture
-    rag = RAGFlow(API_KEY, HOST_ADDRESS)
+    rag = LumeFlow(API_KEY, HOST_ADDRESS)
     ds = rag.create_dataset(name="test_parse_and_cancel_document")
-    name = 'ragflow_test.txt'
+    name = 'lumeflow_test.txt'
     with open("test_data/ragflow_test.txt", "rb") as file:
         blob = file.read()
     docs = ds.upload_documents([{"display_name": name, "blob": blob}])
@@ -56,7 +56,7 @@ def test_parse_and_cancel_document(get_api_key_fixture):
 
 def test_bulk_parse_documents(get_api_key_fixture):
     API_KEY = get_api_key_fixture
-    rag = RAGFlow(API_KEY, HOST_ADDRESS)
+    rag = LumeFlow(API_KEY, HOST_ADDRESS)
     ds = rag.create_dataset(name="test_bulk_parse_and_cancel_documents")
     with open("test_data/ragflow.txt", "rb") as file:
         blob = file.read()
@@ -81,7 +81,7 @@ def test_bulk_parse_documents(get_api_key_fixture):
 
 def test_list_chunks_with_success(get_api_key_fixture):
     API_KEY = get_api_key_fixture
-    rag = RAGFlow(API_KEY, HOST_ADDRESS)
+    rag = LumeFlow(API_KEY, HOST_ADDRESS)
     ds = rag.create_dataset(name="test_list_chunks_with_success")
     with open("test_data/ragflow_test.txt", "rb") as file:
         blob = file.read()
@@ -111,7 +111,7 @@ def test_list_chunks_with_success(get_api_key_fixture):
 
 def test_add_chunk_with_success(get_api_key_fixture):
     API_KEY = get_api_key_fixture
-    rag = RAGFlow(API_KEY, HOST_ADDRESS)
+    rag = LumeFlow(API_KEY, HOST_ADDRESS)
     ds = rag.create_dataset(name="test_add_chunk_with_success")
     with open("test_data/ragflow_test.txt", "rb") as file:
         blob = file.read()
@@ -130,7 +130,7 @@ def test_add_chunk_with_success(get_api_key_fixture):
 
 def test_delete_chunk_with_success(get_api_key_fixture):
     API_KEY = get_api_key_fixture
-    rag = RAGFlow(API_KEY, HOST_ADDRESS)
+    rag = LumeFlow(API_KEY, HOST_ADDRESS)
     ds = rag.create_dataset(name="test_delete_chunk_with_success")
     with open("test_data/ragflow_test.txt", "rb") as file:
         blob = file.read()
@@ -151,7 +151,7 @@ def test_delete_chunk_with_success(get_api_key_fixture):
 
 def test_update_chunk_content(get_api_key_fixture):
     API_KEY = get_api_key_fixture
-    rag = RAGFlow(API_KEY, HOST_ADDRESS)
+    rag = LumeFlow(API_KEY, HOST_ADDRESS)
     ds = rag.create_dataset(name="test_update_chunk_content_with_success")
     with open("test_data/ragflow_test.txt", "rb") as file:
         blob = file.read()
@@ -173,7 +173,7 @@ def test_update_chunk_content(get_api_key_fixture):
 
 def test_update_chunk_available(get_api_key_fixture):
     API_KEY = get_api_key_fixture
-    rag = RAGFlow(API_KEY, HOST_ADDRESS)
+    rag = LumeFlow(API_KEY, HOST_ADDRESS)
     ds = rag.create_dataset(name="test_update_chunk_available_with_success")
     with open("test_data/ragflow_test.txt", "rb") as file:
         blob = file.read()
@@ -195,7 +195,7 @@ def test_update_chunk_available(get_api_key_fixture):
 
 def test_retrieve_chunks(get_api_key_fixture):
     API_KEY = get_api_key_fixture
-    rag = RAGFlow(API_KEY, HOST_ADDRESS)
+    rag = LumeFlow(API_KEY, HOST_ADDRESS)
     ds = rag.create_dataset(name="retrieval")
     with open("test_data/ragflow_test.txt", "rb") as file:
         blob = file.read()

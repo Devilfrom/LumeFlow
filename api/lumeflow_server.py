@@ -17,11 +17,11 @@ from api.db.runtime_config import RuntimeConfig
 from api.db.services.document_service import DocumentService
 from api.utils import show_configs
 from api.utils.log_utils import initRootLogger
-from api.versions import get_ragflow_version
+from api.versions import get_lumeflow_version
 from rag.settings import print_rag_settings
 from rag.utils.redis_conn import RedisDistributedLock
 
-initRootLogger("ragflow_server")
+initRootLogger("lumeflow_server")
 
 stop_event = threading.Event()
 
@@ -56,7 +56,7 @@ if __name__ == "__main__":
     | | \ \   / /  | | | |_| | | |     | |___  | |_| | | |/   |/ /         | |     | |___  | |_| |  ___| | 
     |_|  \_\ /_/   |_| \_____/ |_|     |_____| \_____/ |___/|___/          |_|     |_____| \_____/ /_____/                           
     """)
-    logging.info(f"RAGFlow base version: {get_ragflow_version()}")
+    logging.info(f"LumeFlow base version: {get_lumeflow_version()}")
     logging.info(f"project base: {utils.file_utils.get_project_base_directory()}")
     show_configs()
     settings.init_settings()
@@ -71,11 +71,11 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--version", default=False, help="RAGFlow version", action="store_true")
+    parser.add_argument("--version", default=False, help="LumeFlow version", action="store_true")
     parser.add_argument("--debug", default=False, help="debug mode", action="store_true")
     args = parser.parse_args()
     if args.version:
-        print(get_ragflow_version())
+        print(get_lumeflow_version())
         sys.exit(0)
 
     RuntimeConfig.DEBUG = args.debug
@@ -93,7 +93,7 @@ if __name__ == "__main__":
 
     # start http server
     try:
-        logging.info("RAGFlow HTTP server start...")
+        logging.info("LumeFlow HTTP server start...")
         run_simple(
             hostname=settings.HOST_IP,
             port=settings.HOST_PORT,

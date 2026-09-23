@@ -24,7 +24,7 @@ from rag.utils import singleton
 
 
 @singleton
-class RAGFlowMinio:
+class LumeFlowMinio:
     def __init__(self):
         self.conn = None
         self.__open__()
@@ -119,10 +119,10 @@ class RAGFlowMinio:
         return
 
 
-MINIO = RAGFlowMinio()
+MINIO = LumeFlowMinio()
 
 if __name__ == "__main__":
-    conn = RAGFlowMinio()
+    conn = LumeFlowMinio()
     fnm = "/opt/home/kevinhu/docgpt/upload/13/11-408.jpg"
     from PIL import Image
 

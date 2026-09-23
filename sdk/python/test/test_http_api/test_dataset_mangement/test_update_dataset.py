@@ -23,7 +23,7 @@ from common import (
     list_dataset,
     update_dataset,
 )
-from libs.auth import RAGFlowHttpApiAuth
+from libs.auth import LumeFlowHttpApiAuth
 from libs.utils import encode_avatar
 from libs.utils.file_utils import create_image_file
 
@@ -36,7 +36,7 @@ class TestAuthorization:
         [
             (None, 0, "`Authorization` can't be empty"),
             (
-                RAGFlowHttpApiAuth(INVALID_API_TOKEN),
+                LumeFlowHttpApiAuth(INVALID_API_TOKEN),
                 109,
                 "Authentication error: API key is invalid!",
             ),
@@ -162,7 +162,7 @@ class TestDatasetUpdate:
 
     def test_avatar(self, get_http_api_auth, tmp_path):
         ids = create_datasets(get_http_api_auth, 1)
-        fn = create_image_file(tmp_path / "ragflow_test.png")
+        fn = create_image_file(tmp_path / "lumeflow_test.png")
         payload = {"avatar": encode_avatar(fn)}
         res = update_dataset(get_http_api_auth, ids[0], payload)
         assert res["code"] == 0

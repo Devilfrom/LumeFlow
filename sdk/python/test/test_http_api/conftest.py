@@ -40,34 +40,34 @@ def clear_datasets(get_http_api_auth):
 @pytest.fixture
 def generate_test_files(tmp_path):
     files = {}
-    files["docx"] = tmp_path / "ragflow_test.docx"
+    files["docx"] = tmp_path / "lumeflow_test.docx"
     create_docx_file(files["docx"])
 
-    files["excel"] = tmp_path / "ragflow_test.xlsx"
+    files["excel"] = tmp_path / "lumeflow_test.xlsx"
     create_excel_file(files["excel"])
 
-    files["ppt"] = tmp_path / "ragflow_test.pptx"
+    files["ppt"] = tmp_path / "lumeflow_test.pptx"
     create_ppt_file(files["ppt"])
 
-    files["image"] = tmp_path / "ragflow_test.png"
+    files["image"] = tmp_path / "lumeflow_test.png"
     create_image_file(files["image"])
 
-    files["pdf"] = tmp_path / "ragflow_test.pdf"
+    files["pdf"] = tmp_path / "lumeflow_test.pdf"
     create_pdf_file(files["pdf"])
 
-    files["txt"] = tmp_path / "ragflow_test.txt"
+    files["txt"] = tmp_path / "lumeflow_test.txt"
     create_txt_file(files["txt"])
 
-    files["md"] = tmp_path / "ragflow_test.md"
+    files["md"] = tmp_path / "lumeflow_test.md"
     create_md_file(files["md"])
 
-    files["json"] = tmp_path / "ragflow_test.json"
+    files["json"] = tmp_path / "lumeflow_test.json"
     create_json_file(files["json"])
 
-    files["eml"] = tmp_path / "ragflow_test.eml"
+    files["eml"] = tmp_path / "lumeflow_test.eml"
     create_eml_file(files["eml"])
 
-    files["html"] = tmp_path / "ragflow_test.html"
+    files["html"] = tmp_path / "lumeflow_test.html"
     create_html_file(files["html"])
 
     return files

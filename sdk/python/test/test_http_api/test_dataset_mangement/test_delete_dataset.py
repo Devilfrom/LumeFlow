@@ -23,7 +23,7 @@ from common import (
     delete_dataset,
     list_dataset,
 )
-from libs.auth import RAGFlowHttpApiAuth
+from libs.auth import LumeFlowHttpApiAuth
 
 
 class TestAuthorization:
@@ -32,7 +32,7 @@ class TestAuthorization:
         [
             (None, 0, "`Authorization` can't be empty"),
             (
-                RAGFlowHttpApiAuth(INVALID_API_TOKEN),
+                LumeFlowHttpApiAuth(INVALID_API_TOKEN),
                 109,
                 "Authentication error: API key is invalid!",
             ),

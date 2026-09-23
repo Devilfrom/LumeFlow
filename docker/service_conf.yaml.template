@@ -1,5 +1,5 @@
-ragflow:
-  host: ${RAGFLOW_HOST:-0.0.0.0}
+lumeflow:
+  host: ${LUMEFLOW_HOST:-0.0.0.0}
   http_port: 9380
 mysql:
   name: '${MYSQL_DBNAME:-rag_flow}'

@@ -23,7 +23,7 @@ import rag.utils
 from rag.nlp import search
 from graphrag import search as kg_search
 from api.utils import get_base_config, decrypt_database_config
-from api.constants import RAG_FLOW_SERVICE_NAME
+from api.constants import LUMEFLOW_SERVICE_NAME
 
 LIGHTEN = int(os.environ.get("LIGHTEN", "0"))
 
@@ -95,10 +95,10 @@ def init_settings():
         "naive:General,qa:Q&A,resume:Resume,manual:Manual,table:Table,paper:Paper,book:Book,laws:Laws,presentation:Presentation,picture:Picture,one:One,audio:Audio,knowledge_graph:Knowledge Graph,email:Email,tag:Tag",
     )
 
-    HOST_IP = get_base_config(RAG_FLOW_SERVICE_NAME, {}).get("host", "127.0.0.1")
-    HOST_PORT = get_base_config(RAG_FLOW_SERVICE_NAME, {}).get("http_port")
+    HOST_IP = get_base_config(LUMEFLOW_SERVICE_NAME, {}).get("host", "127.0.0.1")
+    HOST_PORT = get_base_config(LUMEFLOW_SERVICE_NAME, {}).get("http_port")
 
-    SECRET_KEY = get_base_config(RAG_FLOW_SERVICE_NAME, {}).get("secret_key", str(date.today()))
+    SECRET_KEY = get_base_config(LUMEFLOW_SERVICE_NAME, {}).get("secret_key", str(date.today()))
 
     global AUTHENTICATION_CONF, CLIENT_AUTHENTICATION, HTTP_APP_KEY, GITHUB_OAUTH, FEISHU_OAUTH
     # authentication

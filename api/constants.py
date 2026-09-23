@@ -20,7 +20,7 @@ IMG_BASE64_PREFIX = 'data:image/png;base64,'
 SERVICE_CONF = "service_conf.yaml"
 
 API_VERSION = "v1"
-RAG_FLOW_SERVICE_NAME = "ragflow"
+LUMEFLOW_SERVICE_NAME = "lumeflow"
 REQUEST_WAIT_SEC = 2
 REQUEST_MAX_WAIT_SEC = 300
 

@@ -20,7 +20,7 @@ from .modules.chunk import Chunk
 from .modules.dataset import DataSet
 
 
-class RAGFlow:
+class LumeFlow:
     def __init__(self, api_key, base_url, version="v1"):
         """
         api_url: http://<host_address>/api/v1

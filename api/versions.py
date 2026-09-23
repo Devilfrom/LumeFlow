@@ -17,13 +17,13 @@
 import os
 import subprocess
 
-RAGFLOW_VERSION_INFO = "unknown"
+LUMEFLOW_VERSION_INFO = "unknown"
 
 
-def get_ragflow_version() -> str:
-    global RAGFLOW_VERSION_INFO
-    if RAGFLOW_VERSION_INFO != "unknown":
-        return RAGFLOW_VERSION_INFO
+def get_lumeflow_version() -> str:
+    global LUMEFLOW_VERSION_INFO
+    if LUMEFLOW_VERSION_INFO != "unknown":
+        return LUMEFLOW_VERSION_INFO
     version_path = os.path.abspath(
         os.path.join(
             os.path.dirname(os.path.realpath(__file__)), os.pardir, "VERSION"
@@ -31,12 +31,12 @@ def get_ragflow_version() -> str:
     )
     if os.path.exists(version_path):
         with open(version_path, "r") as f:
-            RAGFLOW_VERSION_INFO = f.read().strip()
+            LUMEFLOW_VERSION_INFO = f.read().strip()
     else:
-        RAGFLOW_VERSION_INFO = get_closest_tag_and_count()
+        LUMEFLOW_VERSION_INFO = get_closest_tag_and_count()
         LIGHTEN = int(os.environ.get("LIGHTEN", "0"))
-        RAGFLOW_VERSION_INFO += " slim" if LIGHTEN == 1 else " full"
-    return RAGFLOW_VERSION_INFO
+        LUMEFLOW_VERSION_INFO += " slim" if LIGHTEN == 1 else " full"
+    return LUMEFLOW_VERSION_INFO
 
 
 def get_closest_tag_and_count():
