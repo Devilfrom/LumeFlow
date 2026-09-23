@@ -1,5 +1,5 @@
 #  Copyright 2025 zstar1003. All Rights Reserved.
-#  Project source code: https://github.com/zstar1003/ragflow-plus
+#  Project source code: https://github.com/Devilfrom/LumeFlow
 
 import json
 import os
